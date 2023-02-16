@@ -1,13 +1,10 @@
 ﻿using Assignment.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography;
-using System.Text;
 using static Assignment.Model.AssignmentModel;
 
 namespace Assignment.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class AssignmentController : ControllerBase
@@ -18,7 +15,7 @@ namespace Assignment.Controllers
             _assignmentService = assignmentService;
         }
 
-        #region Task no 1 Invert the string
+        #region Task no 1 invert the string
 
         [HttpGet]
         [Route("InvertText")]
@@ -47,7 +44,7 @@ namespace Assignment.Controllers
         #endregion
 
 
-        #region Task no 3 Read bin file and Calculate SHA in Hex form
+        #region Task no 3 read bin file and calculate SHA in Hex form
 
         [HttpGet]
         [Route("GetSHACalculation")]
@@ -60,11 +57,11 @@ namespace Assignment.Controllers
         #endregion
 
 
-        #region Task no 4 Get Data From Given API
+        #region Task no 4 get data from given API
 
         [HttpGet]
         [Route("CryptoBlockAPI")]
-        public IActionResult GetDataFromThirdParty()
+        public IActionResult GetDataFromBlocktapAPI()
         {
             var Result = _assignmentService.PageAssets();
             return Ok(Result);

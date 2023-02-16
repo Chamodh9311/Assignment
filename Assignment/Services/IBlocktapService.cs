@@ -2,7 +2,7 @@
 
 namespace Assignment.Service
 {
-    public interface IBlockTapService
+    public interface IBlocktapService
     {
         public Task<Root> PageAssets();
         public Task<List<Market>> Price(string Crypto = "BTC");

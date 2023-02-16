@@ -4,7 +4,7 @@ using static Assignment.Model.AssignmentModel;
 
 namespace Assignment.Service
 {
-    public class BlockTapService : IBlockTapService
+    public class BlockTapService : IBlocktapService
     {
         private readonly IConfiguration _configuration;
 

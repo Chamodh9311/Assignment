@@ -6,24 +6,25 @@ namespace Assignment.Service
 {
     public class AssignmentService: IAssignmentService
     {
-        private readonly IBlockTapService _iBlockTapService;
+        private readonly IBlocktapService _blocktapService;
 
-        public AssignmentService(IBlockTapService iBlockTapService)
+        public AssignmentService(IBlocktapService iBlockTapService)
         {
-            _iBlockTapService = iBlockTapService;
+            _blocktapService = iBlockTapService;
         }
+
         //Use for Reverse or Inverse Text
         public async Task<string> StringReverser(InverseText Request)
         {
             if(Request.Text != null) { 
                 char[] stringArray = Request.Text.ToCharArray();
                 Array.Reverse(stringArray);
-                string ReverseString = new string(stringArray);
+                string ReverseString = new(stringArray);
                 return ReverseString;
             }
             else
             {
-                return "Please Enter any Value";
+                return "Please enter a value";
             }
         }
 
@@ -46,11 +47,11 @@ namespace Assignment.Service
         public async Task<List<Market>> PageAssets()
         {
             List<Market> returnData = new List<Market>();
-            var AllData = await _iBlockTapService.PageAssets();
+            var AllData = await _blocktapService.PageAssets();
             for (int i = 0; i<=20;i++)
             {
                 var Currency = AllData.Data.Assets[i];
-                var market = await _iBlockTapService.Price(Currency.AssetSymbol);
+                var market = await _blocktapService.Price(Currency.AssetSymbol);
                 if(market.Count() != 0) { 
                     returnData.Add(market[0]);
                 }
@@ -58,17 +59,16 @@ namespace Assignment.Service
             return returnData;
         }
 
-
         public List<int> FunctionA()
         {
-            List<int> ReturnData = new List<int>();
-            Random rnd = new Random();
+            List<int> ReturnData = new();
+            Random rnd = new();
             for (int i = 0; i < 1000; i++)
             {
                 var Data = rnd.Next(1000);
                 if(Data == i) { 
                     ReturnData.Add(Data);
-                    var t = FunctionB(i);
+                    FunctionB(i);
                 }
             }
             return ReturnData;

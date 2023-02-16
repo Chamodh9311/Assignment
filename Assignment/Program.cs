@@ -7,7 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAssignmentService, AssignmentService>();
-builder.Services.AddScoped<IBlockTapService, BlockTapService>();
+builder.Services.AddScoped<IBlocktapService, BlockTapService>();
 
 var app = builder.Build();
 
@@ -18,7 +18,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

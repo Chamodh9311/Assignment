@@ -24,7 +24,6 @@ namespace Assignment_API_Test.Test_Case
         public async Task GetData_ShouldReturnOkResponse_WhenDataFound()
         {
             //Arramge
-   
             var DataProcess = _ifixer.Create<List<int>>();
             _assignmentmock.Setup(x => x.FunctionA())
                 .Returns(DataProcess);

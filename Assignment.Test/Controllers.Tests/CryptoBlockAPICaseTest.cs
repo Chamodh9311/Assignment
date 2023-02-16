@@ -31,7 +31,7 @@ namespace Assignment_API_Test.Test_Case
                 .Returns(MarketData);
             //Act
             var Result = _contol
-                .GetDataFromThirdParty();
+                .GetDataFromBlocktapAPI();
 
             //Assert
             Result.Should()
